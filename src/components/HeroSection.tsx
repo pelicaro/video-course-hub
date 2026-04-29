@@ -3,6 +3,10 @@ import heroBg from "@/assets/hero-bg.jpg";
 import { Play } from "lucide-react";
 
 const HeroSection = () => {
+  const scrollToLessons = () => {
+    document.getElementById("aulas")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
       <img
@@ -29,13 +33,14 @@ const HeroSection = () => {
           <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8">
             Aulas práticas e objetivas para transformar seu aprendizado em resultados reais.
           </p>
-          <a
-            href="#aulas"
+          <button
+            type="button"
+            onClick={scrollToLessons}
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-lg font-semibold text-lg hover:opacity-90 transition-opacity"
           >
             <Play className="w-5 h-5" />
             Começar a Assistir
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>
