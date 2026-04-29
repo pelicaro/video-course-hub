@@ -19,21 +19,42 @@ const VideoPlayer = () => {
     );
   }
 
+  // Detecta se é um vídeo do YouTube e extrai o ID
+  const getYouTubeId = (url: string): string | null => {
+    const match = url.match(
+      /(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/
+    );
+    return match ? match[1] : null;
+  };
+
+  const youtubeId = getYouTubeId(video.videoUrl);
+
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main className="pt-16">
         <div className="bg-secondary">
           <div className="max-w-5xl mx-auto">
-            <video
-              key={video.id}
-              controls
-              autoPlay
-              className="w-full aspect-video bg-background"
-            >
-              <source src={video.videoUrl} type="video/mp4" />
-              Seu navegador não suporta vídeos.
-            </video>
+            {youtubeId ? (
+              <iframe
+                key={video.id}
+                src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
+                title={video.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full aspect-video bg-background border-0"
+              />
+            ) : (
+              <video
+                key={video.id}
+                controls
+                autoPlay
+                className="w-full aspect-video bg-background"
+              >
+                <source src={video.videoUrl} type="video/mp4" />
+                Seu navegador não suporta vídeos.
+              </video>
+            )}
           </div>
         </div>
 
