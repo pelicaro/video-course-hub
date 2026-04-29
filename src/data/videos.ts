@@ -17,7 +17,7 @@ export const videos: Video[] = [
     duration: "12:30",
     module: "Módulo 1 — Fundamentos",
     order: 1,
-    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+    videoUrl: "https://youtu.be/dcLLw-B9W6Q",
     thumbnail: "",
   },
   {
