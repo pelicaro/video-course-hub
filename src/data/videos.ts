@@ -12,9 +12,9 @@ export interface Video {
 export const videos: Video[] = [
   {
     id: "1",
-    title: "Introdução ao Curso",
-    description: "Bem-vindo! Nesta aula você vai conhecer toda a estrutura do curso e o que vai aprender.",
-    duration: "12:30",
+    title: "HTML e CSS",
+    description: "Bem-vindo! Nesta aula você vai conhecer o que é HTML e CSS.",
+    duration: "5:06",
     module: "Módulo 1 — Fundamentos",
     order: 1,
     videoUrl: "https://youtu.be/dcLLw-B9W6Q",
